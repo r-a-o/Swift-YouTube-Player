@@ -87,7 +87,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     public typealias YouTubePlayerParameters = [String: AnyObject]
     public var baseURL = "about:blank"
     
-    fileprivate var webView: UIWebView!
+    var webView: UIWebView!
     
     /** The readiness of the player */
     fileprivate(set) open var ready = false
