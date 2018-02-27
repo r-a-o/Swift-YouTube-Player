@@ -87,7 +87,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     public typealias YouTubePlayerParameters = [String: AnyObject]
     public var baseURL = "about:blank"
     
-    var webView: UIWebView!
+    fileprivate var webView: UIWebView!
     
     /** The readiness of the player */
     fileprivate(set) open var ready = false
@@ -149,6 +149,11 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     }
     
     open func loadVideoID(_ videoID: String) {
+        // set playerVars before calling playerParameters()
+        playerVars["showinfo"] = 0 as AnyObject?
+        playerVars["playsinline"] = 1 as AnyObject?
+        playerVars["modestbranding"] = 1 as AnyObject?
+        
         var playerParams = playerParameters()
         playerParams["videoId"] = videoID as AnyObject?
         
